@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="css/grocery.css">
+    <link rel="stylesheet" href="css/grocery_list.css">
+    <script
+      src="https://kit.fontawesome.com/7c58a17dae.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+
+    <section class="container">
+
+        <nav class="navi">
+            <div class="nav__button" onClick="navOpen()">
+                <i class="nav-icon fas fa-bars"></i>
+            </div>
+            <div class="nav__opened" style="display: none;">
+                <div>
+                    <a href="grocery"><i class="nav-icon fas fa-shopping-bag"></i></a>
+                </div>
+                <div>
+                    <a href="emergency"><i class="nav-icon fas fa-ambulance"></i></a>
+                </div>
+
+                <div onClick="navClose()">
+                    <i class="nav-icon fas fa-times"></i>
+                </div>
+
+                <div>
+                    <a href="medical"><i class="nav-icon fas fa-briefcase-medical"></i></a>
+                </div>
+                <div>
+                    <a href="tips"><i class="nav-icon far fa-lightbulb"></i></a>
+                </div>
+                </div>
+            </div>
+            
+            
+        </nav>
+
+
+        <div class="g__header">
+            <div class="l_head">
+                <a href="/"></a>
+                 Mishra General Store
+            </div>
+
+            <div class="r_head">
+                <div>
+                    <i class="search_icon fas fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="mid__section">
+           <div class="product_list">
+               <div class="item">
+                   <div class="item_image">
+                        <img src="images/p_1.jfif" alt="" srcset="">
+                   </div>
+                   <div class="item_description">
+                        Desi Ghee 1kg <br>
+                        <i class="quan fas fa-minus"></i> 1 <i class="quan fas fa-plus"></i> <br>
+                        <div class="add_item">
+                            Add item
+                        </div>
+                   </div>
+                   
+               </div>
+               
+
+               <div class="item">
+                <div class="item_image">
+                     <img src="images/p_2.jfif" alt="" srcset="">
+                </div>
+                <div class="item_description">
+                     Aata 10kg <br>
+                     <i class="quan fas fa-minus"></i> 1 <i class="quan fas fa-plus"></i> <br>
+                     <div class="add_item">
+                         Add item
+                     </div>
+                </div>
+                
+            </div>
+
+
+            <div class="item">
+                <div class="item_image">
+                     <img src="images/p_3.jfif" alt="" srcset="">
+                </div>
+                <div class="item_description">
+                    Almonds 1kg <br>
+                     <i class="quan fas fa-minus"></i> 1 <i class="quan fas fa-plus"></i> <br>
+                     <div class="add_item">
+                         Add item
+                     </div>
+                </div>
+                
+            </div>
+            <div class="item">
+                <div class="item_image">
+                     <img src="images/p_4.jfif" alt="" srcset="">
+                </div>
+                <div class="item_description">
+                     Maggi<br>
+                     <i class="quan fas fa-minus"></i> 1 <i class="quan fas fa-plus"></i> <br>
+                     <div class="add_item">
+                         Add item
+                     </div>
+                </div>
+                
+            </div>
+            <div class="item">
+                <div class="item_image">
+                     <img src="images/p_1.jfif" alt="" srcset="">
+                </div>
+                <div class="item_description">
+                     Desi Ghee 1kg <br>
+                     <i class="quan fas fa-minus"></i> 1 <i class="quan fas fa-plus"></i> <br>
+                     <div class="add_item">
+                         Add item
+                     </div>
+                </div>
+                
+            </div>
+               
+           </div>
+          
+        </div>
+
+        
+
+
+
+    </section>
+
+
+
+
+
+
+
+    <script src="js/nav.js"></script>
+</body>
+</html>

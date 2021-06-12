@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script
+      src="https://kit.fontawesome.com/7c58a17dae.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="container">
+        <nav class="navi">
+            <div class="nav__button" onClick="navOpen()">
+                <i class="nav-icon fas fa-bars"></i>
+            </div>
+            <div class="nav__opened" style="display: none;">
+                <div>
+                    <a href="grocery"><i class="nav-icon fas fa-shopping-bag"></i></a>
+                </div>
+                <div>
+                    <a href="emergency"><i class="nav-icon fas fa-ambulance"></i></a>
+                </div>
+
+                <div onClick="navClose()">
+                    <i class="nav-icon fas fa-times"></i>
+                </div>
+
+                <div>
+                    <a href="medical"><i class="nav-icon fas fa-briefcase-medical"></i></a>
+                </div>
+                <div>
+                    <a href="tips"><i class="nav-icon far fa-lightbulb"></i></a>
+                </div>
+                </div>
+            </div>
+            
+            
+        </nav>
+
+
+
+      <div class="header">
+<div class="only_mob">
+  
+</div>
+
+        <div class="header__left">
+          <p class="header__text">
+            <span>Essentials</span> <br />
+            on your way
+          </p>
+          <div class="pincode__input">
+            <i class="marker fas fa-map-marker-alt"></i>
+            <input type="text" placeholder="Enter your Pincode" />
+          </div>
+        </div>
+
+        <div class="header__image"></div>
+      </div>
+
+      <div class="mid__section">
+        <p class="row__heading">We have got your back</p>
+        <div class="row">
+          <div class="card">
+            <div class="card__image">
+                <img src="images/card_1.png" alt="" srcset="">
+            </div>
+
+            <div>
+                <p class="card__text">Groceries</p>
+            </div>
+            
+          </div>
+
+          <div class="card">
+            <div class="card__image">
+                <img src="images/card_2.png" alt="" srcset="">
+            </div>
+            <div>
+                <p class="card__text">Medical</p>
+            </div>
+            
+          </div>
+
+          <div class="card">
+            <div class="card__image">
+                
+                <img id="emer" src="images/emer.png" alt="" srcset="">
+            </div>
+            <div>
+                <p class="card__text">Emergency</p>
+            </div>
+           
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <script src="js/nav.js"></script>
+
+
+  </body>
+</html>

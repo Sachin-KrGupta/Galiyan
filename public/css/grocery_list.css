@@ -1,0 +1,52 @@
+
+
+.product_list{
+    height: 80vh;
+    overflow-y: auto;
+    
+}
+.item{
+    height: 150px;
+    width: 90%;
+    margin-top: 16px;
+    border-radius: 20px;
+    background-color: rgba(164, 226, 202, 0.89);
+    display: flex;
+    padding: 10px;
+    box-shadow: 0 0 6px 2px rgb(190, 190, 190);
+    margin-left: 10px;
+}
+.item:nth-child(even){
+    background-color: rgba(132, 194, 170, 0.89);
+}
+
+
+.item_image{
+    flex: .5;
+}
+
+.item_image img{
+    height: 100px;
+    width: 100px;
+    margin-top: 12px;
+}
+
+.item_description{
+    padding: 10px;
+    flex: .5;
+    text-align: center;
+    line-height: 2;
+}
+
+.quan{
+    font-size: 15px;
+    color: white;
+    background-color: blue ;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.add_item{
+    background-color: rgb(22, 201, 141);
+    border-radius: 10px;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= docTitle %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/grocery.css">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navi">
+            <div class="nav__button" onClick="navOpen()">
+                <i class="nav-icon fas fa-bars"></i>
+            </div>
+            <div class="nav__opened" style="display: none;">
+                <div>
+                    <a href="grocery"><i class="nav-icon fas fa-shopping-bag"></i></a>
+                </div>
+                <div>
+                    <a href="emergency"><i class="nav-icon fas fa-ambulance"></i></a>
+                </div>
+
+                <div onClick="navClose()">
+                    <i class="nav-icon fas fa-times"></i>
+                </div>
+
+                <div>
+                    <a href="medical"><i class="nav-icon fas fa-briefcase-medical"></i></a>
+                </div>
+                <div>
+                    <a href="tips"><i class="nav-icon far fa-lightbulb"></i></a>
+                </div>
+                </div>
+            </div>
+            
+            
+        </nav>
+        
+            
+        </div>
+    <div class="headBack">
+            <h1 class="emergency">Emergency</h1>
+            <hr id="hrEmergency">    
+    </div>
+    <div class="hello">
+        <div class="allAndNearMe">
+            <a href="emergency" class="all <% if(flag==0) { %> dGreen <% } %> " >All Contacts</a>
+            <a href="sendMessageNear" class="nearMe <% if(flag==1) { %> dGreen <% } %>">Near Me</a>
+        </div>
+    </div>
+    <div class="addNew">
+        <div class="cnct">
+            Contacts
+        </div>
+        <div class="new">
+            <button style = "text-decoration: none;background-color: white; border: none;" id="myBtn">add new <i class="fas fa-plus-circle add-new"></i></button>
+        </div>
+    </div>
+    <br>
+
+     <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form action="/contact" method="POST" class="formForAdd">
+                <input class="form-control inputs" type="text" name="contactName" placeholder="Name" value="">
+                <input class="form-control inputs" type="text" name="contactNumber" placeholder="Number" value="">
+                <input class="form-control inputs" type="text" name="contactPin" placeholder="PIN Code" value="">
+                <button class="btn btn-submit" type="submit">Submit</button>
+            </form>
+          </div>
+        
+     </div> 
+     
+    <!-- <h1>All Contacts</h1> -->
+    <% if(flag==0) { %>
+        <% if(cocs.length > 0) { %>
+            <% for (let contact of cocs) { %>
+                <div class="parentList">
+                    <div class="list" id="<%= contact.id %>">
+                    <p class="contentName"><%= contact.contactName %><span class="cross"><i class="fas fa-times-circle cross" onclick="deleteFunction('<%= contact.id %>')"></i></span></p>
+                    
+                </div>
+                </div>      
+            <% } %>
+            <form action="/sendMessage" method="POST">
+                <input type="hidden" value="<%= flag %>" name="flag">
+                <button class="send">Send <i class="fas fa-paper-plane" style="color: white;"></i></button>
+            </form>
+            
+        <% } else { %>
+            <h1>No contacts Found !!</h1>
+        <% } %>
+    <% } else { %>
+        <% if(cocs.length > 0) { %>
+            <% for (let contact of cocs) { %>
+                <% if(contact.contactPin==221003) { %>
+                    <div class="parentList">
+                        <div class="list" id = "<%= contact.id %>">
+                        <p class="contentName"><%= contact.contactName %><span><i class="fas fa-times-circle cross" onclick="deleteFunction('<%= contact.id %>')"></i></span></p>
+                        
+                    </div>
+                    </div>
+                <% } else { %>
+                    <% continue; %>
+                <% } %>      
+            <% } %>
+            <form action="/sendMessage" method="POST">
+                <button class="send">Send <i class="fas fa-paper-plane" style="color: white;"></i></button>
+            </form>
+            
+        <% } else { %>
+            <h1>No contacts Found !!</h1>
+        <% } %>
+    <% } %>
+    <script>
+        var modal = document.getElementById("myModal");
+        
+        var btn = document.getElementById("myBtn");
+        
+        var span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        }
+        function deleteFunction(str) {
+            console.log(str);
+            let del = document.querySelector(`#${str}`);
+            del.style.display = "none";
+        }
+    </script>
+    <script src="js/nav.js"></script>
+</body>
+</html>

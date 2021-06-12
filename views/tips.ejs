@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= docTitle %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/grocery.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .inputs {
+            /* width: 300px; */
+            overflow: hidden;
+        }
+            /* .add-contact {
+                display: none;
+            } */
+        .headBack {
+            position: absolute;
+            background-color: rgba(206,225,223,255);
+            height: 25vh;
+            width: 100%;
+            border-radius: 0px 0px 50px 50px;
+            text-align: center;
+            align-content: center;
+            color: rgba(56,114,109,255);
+        }
+        .emergency {
+            padding-top: 8vh;
+        }
+        .forHR {
+            margin: auto;
+        }
+        #hrEmergency {
+            margin: 0;
+            margin-bottom: 20px; 
+            margin-left: auto; 
+            margin-right: auto ;
+            padding: 0; 
+            width: 8vh; 
+            border:3px solid rgba(56,114,109,255); 
+            border-bottom: 0px; 
+            border-left: 0px; 
+            border-right: 0px;
+        }
+        .active {
+            background-color: rgba(55,112,104,255);
+        }
+
+        .allAndNearMe {
+            background-color: #96bfb9;
+            display: inline-block;
+            /* padding: 5px 15px; */
+            border-radius: 20px;
+            
+        }
+        .hello {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            padding-top: 22vh;
+            z-index: 3;
+            color: white;
+            
+        }
+        .all {
+            /* background-color: rgba(55,112,104,255); */
+            height: inherit;
+            width: inherit;
+            display: inline-block;
+            padding: 5px 15px;
+            height: 100%;
+            border-radius: 20px;
+        }
+        .nearMe {
+            height: inherit;
+            width: inherit;
+            display: inline-block;
+            padding: 5px 15px;
+            height: 100%;
+            border-radius: 20px;
+        }
+        .cnct {
+            /* float: left; */
+            padding-left: 15px;
+            font-size: 28px;
+            display: inline-block;
+
+        }
+        .dGreen {
+            background-color: rgba(55,112,104,255);
+        }
+        .new {
+            float: right;
+            padding-right: 15px;
+            font-size: 24px;
+            color: rgba(55,112,104,255);
+        }
+        .list {
+            /* height: 60px;  */
+            background-color: rgba(206,225,223,255);
+            margin-bottom: 10px;
+            width: 90%;
+            border-radius: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: rgba(55,112,104,255);
+        }
+        .addNew {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            
+        }
+        .parentList {
+            display: flex;
+            justify-content: center;
+            min-height: 100px;
+        }
+        .contentName {
+            font-size: 24px;
+            padding-top: 12px;
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 4; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: rgba(206,225,223,255);
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .send {
+            text-decoration: none;
+            border: none;
+            background-color: rgba(55,112,104,255);
+            border-radius: 25px;
+            padding: 10px 15px;
+            color: white;
+            margin-left: 70%;
+        }
+        .tipsAll {
+            padding: 8px 25px;
+            font-size: 20px;
+        }
+        .flag1 {
+            background-color: rgba(213,223,237,255);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navi">
+        <div class="nav__button" onClick="navOpen()">
+            <i class="nav-icon fas fa-bars"></i>
+        </div>
+        <div class="nav__opened" style="display: none;">
+            <div>
+                <a href="grocery"><i class="nav-icon fas fa-shopping-bag"></i></a>
+            </div>
+            <div>
+                <a href="emergency"><i class="nav-icon fas fa-ambulance"></i></a>
+            </div>
+
+            <div onClick="navClose()">
+                <i class="nav-icon fas fa-times"></i>
+            </div>
+
+            <div>
+                <a href="medical"><i class="nav-icon fas fa-briefcase-medical"></i></a>
+            </div>
+            <div>
+                <a href="tips"><i class="nav-icon far fa-lightbulb"></i></a>
+            </div>
+            </div>
+        </div>
+        
+        
+    </nav>
+    <div class="headBack">
+            <h1 class="emergency">Tips</h1>
+            <hr id="hrEmergency">    
+    </div>
+    <div class="hello">
+        <div class="allAndNearMe dGreen">
+            <form class="tipsAll"><span style="color: white;">All Tips</span></form>
+        </div>
+    </div>
+    <br>
+
+    <div class="parentList">
+        <div class="list flag0">
+        <p class="contentName">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
+    <div class="parentList">
+        <div class="list flag1">
+        <p class="contentName">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
+    <div class="parentList">
+        <div class="list flag0">
+        <p class="contentName">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
+    <div class="parentList">
+        <div class="list flag1">
+        <p class="contentName">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
+    <script src="js/nav.js"></script>
+</body>
+</html>
