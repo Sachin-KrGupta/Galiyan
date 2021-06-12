@@ -8,8 +8,8 @@ const Contact = require('./models/contacts');
 const Vonage = require('@vonage/server-sdk')
 
 const vonage = new Vonage({
-  apiKey: "ea0248b1",
-  apiSecret: "S9cs6yAmyZjWluO2"
+  apiKey: "",
+  apiSecret: ""
 });
 
 const app = express();
